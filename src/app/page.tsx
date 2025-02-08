@@ -1,10 +1,10 @@
 "use client"
 
-import { useState } from "react"
-import { File, mockFiles } from "../lib/mock-data"
-import { Folder, FileIcon, Upload, ChevronRight } from "lucide-react"
+import {useState} from "react"
+import {mockFiles} from "../lib/mock-data"
+import {Folder, FileIcon, Upload, ChevronRight} from "lucide-react"
 import Link from "next/link"
-import { Button } from "~/components/ui/button"
+import {Button} from "~/components/ui/button"
 
 export default function GoogleDriveClone() {
   const [currentFolder, setCurrentFolder] = useState<string | null>(null)
@@ -52,7 +52,7 @@ export default function GoogleDriveClone() {
             </Button>
             {getBreadcrumbs().map((folder, index) => (
               <div key={folder.id} className="flex items-center">
-                <ChevronRight className="mx-2 text-gray-500" size={16} />
+                <ChevronRight className="mx-2 text-gray-500" size={16}/>
                 <Button
                   onClick={() => handleFolderClick(folder.id)}
                   variant="ghost"
@@ -64,7 +64,7 @@ export default function GoogleDriveClone() {
             ))}
           </div>
           <Button onClick={handleUpload} className="bg-blue-600 text-white hover:bg-blue-700">
-            <Upload className="mr-2" size={20} />
+            <Upload className="mr-2" size={20}/>
             Upload
           </Button>
         </div>
@@ -86,12 +86,12 @@ export default function GoogleDriveClone() {
                         onClick={() => handleFolderClick(file.id)}
                         className="flex items-center text-gray-100 hover:text-blue-400"
                       >
-                        <Folder className="mr-3" size={20} />
+                        <Folder className="mr-3" size={20}/>
                         {file.name}
                       </button>
                     ) : (
-                      <Link href={file.url || "#"} className="flex items-center text-gray-100 hover:text-blue-400">
-                        <FileIcon className="mr-3" size={20} />
+                      <Link href={file.url ?? "#"} className="flex items-center text-gray-100 hover:text-blue-400">
+                        <FileIcon className="mr-3" size={20}/>
                         {file.name}
                       </Link>
                     )}
