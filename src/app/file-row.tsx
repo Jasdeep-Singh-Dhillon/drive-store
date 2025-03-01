@@ -1,6 +1,6 @@
 import { Folder as FolderIcon, FileIcon } from "lucide-react";
 import { files, folders } from "~/server/db/schema";
-export function FileRow(props: { file: typeof files.$inferSelect}) {
+export function FileRow(props: { file: typeof files.$inferSelect }) {
   const { file } = props;
   return (
     <li
@@ -19,7 +19,7 @@ export function FileRow(props: { file: typeof files.$inferSelect}) {
           </a>
         </div>
         <div className="col-span-3 text-gray-400">{"File"}</div>
-        <div className="col-span-3 text-gray-400">{file.size}</div>
+        <div className="col-span-3 text-gray-400">{file.size === 5000 ? "5 MB": file.size}</div>
       </div>
     </li>
   );
@@ -45,7 +45,7 @@ export function FolderRow(props: {
             {folder.name}
           </button>
         </div>
-        <div className="col-span-3 text-gray-400"></div>
+        <div className="col-span-3 text-gray-400">{"Folder"}</div>
         <div className="col-span-3 text-gray-400"></div>
       </div>
     </li>
